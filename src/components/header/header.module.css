@@ -1,0 +1,28 @@
+.header {
+  margin-bottom: 25px;
+}
+
+.header__info {
+  margin-bottom: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 32px;
+}
+
+.header__scoreBlock {
+  font-size: 18px;
+}
+
+.questionList {
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  overflow: hidden;
+}
