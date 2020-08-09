@@ -1,0 +1,25 @@
+.questionBlock {
+  margin-bottom: 25px;
+  padding: 20px;
+  width: 100%;
+  background-color: #303030;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.questionBlock__image {
+  border-radius: 5px;
+}
+
+.questionBlock__data {
+  padding: 10px;
+  width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.questionBlock__name {
+  border-bottom: 1px solid #808080;
+}

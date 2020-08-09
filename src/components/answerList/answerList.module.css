@@ -1,0 +1,27 @@
+.answerList {
+  width: 45%;
+  background-color: #303030;
+  border-radius: 5px;  
+  border: 1px solid #808080;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.answerList__item {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.answerList__item:not(:last-child) {
+  border-bottom: 1px solid #808080;
+}
+
+.answerList__mark {
+  margin-right: 20px;
+  width: 7px;
+  height: 7px;
+  background-color: #808080;
+  border-radius: 50%;
+}
