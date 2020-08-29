@@ -1,7 +1,11 @@
 import React from 'react';
 import s from './birdInfo.module.css';
+import Audioplayer from '../audioplayer/audioplayer';
 
 const BirdInfo = ({ data }) => {
+  if (!data) {
+    return (<div className={s.birdInfo}>choose bird</div>)
+  }
   const { name, species, description, image, audio } = data;
   return (
     <div className={s.birdInfo}>
@@ -10,7 +14,7 @@ const BirdInfo = ({ data }) => {
         <div className={s.birdInfo__about}>
           <h3 className={s.birdInfo__name}>{name}</h3>
           <p className={s.birdInfo__species}>{species}</p>
-          <audio className={s.birdInfo__audio} src={audio}/>
+          <Audioplayer audio={audio} autoplay={false}/>
         </div>
       </div>
       <p className={s.birdInfo__description} >{description}</p>

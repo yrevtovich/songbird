@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './questionListItem.module.css'
 
-const QuestionListItem = ({text, played = null}) => {
+const QuestionListItem = ({text, active}) => {
   return (
-    <li className={s.questionList__item}>
+    <li className={active ? s.questionList__item_active : s.questionList__item}>
       {text}
     </li>
   )
