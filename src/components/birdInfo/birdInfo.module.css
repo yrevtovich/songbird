@@ -1,0 +1,40 @@
+.birdInfo {
+  padding: 20px;
+  width: 48%;
+  background-color: #303030;
+  border-radius: 5px;
+  border: 1px solid #80808080;
+}
+
+.birdInfo__main {  
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.birdInfo__image {
+  width: 250px;
+  height: 170px;
+  border-radius: 15px;
+}
+
+.birdInfo__about {
+  width: 260px;
+}
+
+.birdInfo__name {
+  font-size: 22px;
+  line-height: 2.3;
+  border-bottom: 1px solid #80808080;
+}
+
+.birdInfo__species {
+  padding: 0px 0;
+  font-size: 16px;  
+  line-height: 1.9;
+  border-bottom: 1px solid #80808080;  
+}
+
+.birdInfo__description {
+  text-align: justify;
+}

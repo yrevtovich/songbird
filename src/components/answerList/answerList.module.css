@@ -1,8 +1,8 @@
 .answerList {
-  width: 45%;
+  width: 48%;
   background-color: #303030;
   border-radius: 5px;  
-  border: 1px solid #808080;
+  border: 1px solid #80808080;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,10 +12,15 @@
   padding: 15px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .answerList__item:not(:last-child) {
-  border-bottom: 1px solid #808080;
+  border-bottom: 1px solid #80808080;
+}
+
+.answerList__item:hover {
+  background-color: #444;
 }
 
 .answerList__mark {

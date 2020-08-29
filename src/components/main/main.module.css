@@ -1,0 +1,9 @@
+.nextBtn {
+  width: 100%;
+  height: 35px;
+  color: #fff;
+  text-align: center;
+  background-color: #303030;
+  border-radius: 5px;
+  border: 1px solid #80808080;
+}
