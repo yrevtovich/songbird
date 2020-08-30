@@ -3,7 +3,6 @@ import s from './main.module.css';
 import QuestionBlock from '../questionBlock/questionBlock';
 import GameBlock from '../gameBLock/gameBlock';
 import birdData from '../../birdsData';
-// import Button from '../button/button';
 
 class Main extends Component {
   constructor(props) {
@@ -32,7 +31,6 @@ class Main extends Component {
   }
 
   checkAnswer = (isCorrect) => {
-    console.log(isCorrect, 'isCor')
     if (isCorrect) {
       this.setState({ isAnsweredCorrectly: isCorrect });
     }
@@ -47,8 +45,6 @@ class Main extends Component {
     const { answer, changeQuestion, checkAnswer, resetRound } = this;
     const { isAnsweredCorrectly, isRoundCompleted } = this.state;
     const currentRoundData = birdData[level].data;
-    
-    console.log( isAnsweredCorrectly,'next', isRoundCompleted)
 
     return (
       <main>

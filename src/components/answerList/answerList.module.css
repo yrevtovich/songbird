@@ -39,3 +39,10 @@
 .answerList__mark_incorrect {
   background-color: #d42323;
 }
+
+@media (max-width: 768px) {
+  .answerList {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}

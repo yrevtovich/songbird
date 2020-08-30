@@ -11,7 +11,7 @@
 }
 
 .header__logo {
-  font-size: 32px;
+  width: 200px;
 }
 
 .header__scoreBlock {
@@ -23,6 +23,22 @@
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  align-items: center;  
   overflow: hidden;
+}
+
+@media (max-width: 768px ) {
+  .questionList {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .header__logo {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px ) {
+  .header__logo {
+    width: 120px;
+  }
 }

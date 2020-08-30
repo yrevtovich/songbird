@@ -2,6 +2,7 @@ import React from 'react';
 import s from './header.module.css';
 import birdsData from '../../birdsData';
 import QuestionListItem from './qustionListItem/questionListItem';
+import logo from '../../assets/logo.svg'
 
 const Header = ({ score, level }) => {
   const questionList = birdsData.map(({ title, round }, index) => (
@@ -15,7 +16,9 @@ const Header = ({ score, level }) => {
   return (
     <header className={s.header}>
       <div className={s.header__info}>
-        <h1 className={s.header__logo}>Songbird</h1>
+        <h1>
+          <img className={s.header__logo} src={logo}/>
+        </h1>
         <p className={s.header__scoreBlock}>Score: {score}</p>
       </div>
       <ul className={s.questionList}>

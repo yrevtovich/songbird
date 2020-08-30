@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import s from './gameBlock.module.css';
 import AnswerList from '../answerList/answerList';
 import BirdInfo from '../birdInfo/birdInfo';
-// import birdsData from '../../birdsData';
-
 
 class GameBlock extends Component {
   constructor(props) {
@@ -16,14 +14,9 @@ class GameBlock extends Component {
       selectedBird: null,
     }
   }
-  // state = {
-  //   selectedBird: this.props.selectedBird ,
-  // }
-  // component
 
   componentDidUpdate() {
     const { isRoundCompleted, resetRound } = this.props;
-    console.log(isRoundCompleted, 'is')
     if (isRoundCompleted) {      
       this.chosenOptions = [];
       resetRound();
@@ -31,20 +24,9 @@ class GameBlock extends Component {
     }
   }
 
-  // componentWillReceiveProps() {
-  //   console.log('props')
-  //   const { isAnsweredCorrectly } = this.props;
-  //   console.log(isAnsweredCorrectly, 'is')
-  //   if (isAnsweredCorrectly) {      
-  //     this.chosenOptions = [];
-  //     this.setState({ selectedBird: null, })
-  //   }
-  // }
-
   chooseBird = (event) => {
     const { target, target: { id } } = event;
     const { checkAnswer, updateScore, isAnsweredCorrectly, answer } = this.props;
-    console.log(this.chosenOptions, 'this.chosenOptions', this.answer, answer, 'answ')
 
     if (target.tagName !== 'LI' ) {      
      return;
@@ -53,21 +35,16 @@ class GameBlock extends Component {
 
     const isCorrect = +id === answer + 1 ? true : false;
     const isSelected = this.chosenOptions.find((item) => item === +id);
-    // (isSelected, this.chosenOptions)
     
     if (isSelected || isAnsweredCorrectly) {
       return;
     }
 
-    console.log(isSelected, isAnsweredCorrectly, '11')
-
     this.chosenOptions.push(+id);
 
     if (isCorrect && !isSelected) {      
-      console.log('here')
       updateScore(this.data.length - this.chosenOptions.length);
       checkAnswer(isCorrect);
-      // this.answerSounds = false;
     } 
    
   }
@@ -75,7 +52,6 @@ class GameBlock extends Component {
   render() {
     const { data, answer } = this.props;
     const { selectedBird } = this.state;
-    // (selectedBird, 'selectedBird', this.props.selectedBird)
 
     return (
       <div className={s.gameBlock} >
