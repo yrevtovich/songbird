@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import s from './gameBlock.module.css';
 import AnswerList from '../answerList/answerList';
 import BirdInfo from '../birdInfo/birdInfo';
+import correctSound from '../../assets/correct.mp3';
+import incorrectSound from '../../assets/incorrect.mp3';
 
 class GameBlock extends Component {
   constructor(props) {
@@ -24,6 +26,11 @@ class GameBlock extends Component {
     }
   }
 
+  playSound = (sound) => {   
+    const audio = new Audio(sound);
+    audio.play();
+  } 
+
   chooseBird = (event) => {
     const { target, target: { id } } = event;
     const { checkAnswer, updateScore, isAnsweredCorrectly, answer } = this.props;
@@ -45,7 +52,12 @@ class GameBlock extends Component {
     if (isCorrect && !isSelected) {      
       updateScore(this.data.length - this.chosenOptions.length);
       checkAnswer(isCorrect);
+      this.playSound(correctSound);
     } 
+
+    if (!isCorrect && !isSelected) {
+      this.playSound(incorrectSound);
+    }
    
   }
 
