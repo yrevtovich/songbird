@@ -10,6 +10,7 @@ const QuestionBlock = ({ data: { name, image, audio }, isAnsweredCorrectly }) =>
       <img 
         className={s.questionBlock__image} 
         src={isAnsweredCorrectly ? image : defaultBird}
+        alt='Bird illustration'
       />
       <div className={s.questionBlock__data}>
         <p className={s.questionBlock__name}>

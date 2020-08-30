@@ -10,7 +10,15 @@ const GameEndBlock = ({score, maxScore, onClickHandler }) => {
         <p className={s.scoreBlock__result}>{`Вы прошли викторину и набрали ${score} из ${maxScore} возможных баллов`}</p>
       </div>
       {score === maxScore ? 
-      <div className={s.notification}>Игра окончена</div> : 
+      <div>
+        <p className={s.notification__header}>
+          Вы набрали максимальное количество очков! 
+        </p>
+        <p className={s.notification__content}>
+          Еще немного полезной информации о птицах вы можете найти:  
+          <a className={s.link} href='https://www.mybirds.ru/'>  https://www.mybirds.ru/</a>
+        </p>
+      </div> : 
       <button 
         className={s.btnRepeat}
         onClick={onClickHandler}

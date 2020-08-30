@@ -65,6 +65,8 @@ class GameBlock extends Component {
     const { data, answer } = this.props;
     const { selectedBird } = this.state;
 
+    console.log(data[answer].name, ' правильный ответ');
+
     return (
       <div className={s.gameBlock} >
         <AnswerList 

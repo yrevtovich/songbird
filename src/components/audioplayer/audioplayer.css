@@ -8,6 +8,7 @@
 
 .rhap_main {
   justify-content: space-between;
+  align-items: center;
 }
 
 .rhap_container svg {
@@ -24,12 +25,18 @@
 }
 
 .rhap_progress-section {
-  max-width: calc(100% - 180px);
+  width: 100%;
+  max-width: 100%;
   position: relative;
 }
 
 .rhap_progress-container {
   margin: 0;
+  padding: 0 5px;
+}
+
+.rhap_progress-bar {
+  background-color: #aeaeae;
 }
 
 .rhap_progress-filled {
@@ -44,7 +51,7 @@
 }
 
 .rhap_controls-section {
-  padding-right: 8px;
+  padding-right: 6px;
   flex: none;
 }
 
@@ -73,19 +80,23 @@
 .rhap_time {
   color: #fff;
   position: absolute;
-  top: 20px;
+  top: 15px;
 }
 
 .rhap_current-time {
   padding-top: 5px;  
-  font-size: 14px;
+  font-size: 12px;
   left: 0;
 }
 
 .rhap_total-time {
   padding-top: 5px;  
-  font-size: 14px;
+  font-size: 12px;
   right: 0;
+}
+
+.rhap_stacked-reverse .rhap_controls-section {
+  width: 100%;
 }
 
 @media (max-width: 375px) {

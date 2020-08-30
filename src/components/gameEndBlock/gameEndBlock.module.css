@@ -18,12 +18,23 @@
   font-size: 55px;
 }
 
-.notification {
+.notification__header {
+  margin: auto;
+  margin-bottom: 30px;
   font-size: 32px;
   font-weight: 700;
   color: #00bc8c;
   text-align: center;
   text-transform: uppercase;
+}
+
+.notification__content {
+  margin: auto;
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .btnRepeat {
@@ -37,6 +48,15 @@
   border: 1px solid rgb(122, 255, 193);
 }
 
+.link {  
+  margin-left: 10px;
+  color: #00bc8c;
+}
+
+.link:hover {
+  color: #00bcac;
+}
+
 @media (max-width: 765px) {
   .scoreBlock__header {
     font-size: 45px;
@@ -46,5 +66,9 @@
 @media (max-width: 375px) {
   .scoreBlock__header {
     font-size: 35px;
+  }
+
+  .notification__header {
+    font-size: 26px;
   }
 }

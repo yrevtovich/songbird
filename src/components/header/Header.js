@@ -17,7 +17,7 @@ const Header = ({ score, level }) => {
     <header className={s.header}>
       <div className={s.header__info}>
         <h1>
-          <img className={s.header__logo} src={logo}/>
+          <img className={s.header__logo} src={logo} alt='Logotype'/>
         </h1>
         <p className={s.header__scoreBlock}>Score: {score}</p>
       </div>

@@ -6,11 +6,13 @@ import "./audioplayer.css";
 class Audioplayer extends Component  {
   player = React.createRef();
   render() {
-    const {audio, autoplay, isAnsweredCorrectly } = this.props;
+    const {audio, isAnsweredCorrectly, layoutDirection } = this.props;
 
     if (isAnsweredCorrectly) {
       this.player.current.audio.current.pause();
     }
+
+    const layout = layoutDirection ? 'stacked-reverse' : "horizontal-reverse";
 
     return (
       <AudioPlayer
@@ -36,7 +38,7 @@ class Audioplayer extends Component  {
         
         customVolumeControls={[]}    
         customAdditionalControls={[]}
-        layout="horizontal-reverse"
+        layout={layout}
       />
     );
   }
