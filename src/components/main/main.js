@@ -8,42 +8,65 @@ import birdData from '../../birdsData';
 class Main extends Component {
   constructor(props) {
     super(props);    
-    this.answer = this.getRandomNumber(6);
-    this.isAnsweredCorrectly = true;
+    this.answer = this.getRandomAnswer(props.level);  
+    this.state = {
+      isAnsweredCorrectly: false,       
+      isRoundCompleted: false,
+    };
   }
 
-  getRandomNumber = (length) => {
-    console.log('here')
-    return Math.round(Math.random() * (length - 1));
+  getRandomAnswer = (level) => {
+    const round = birdData[level].data.length;
+    return Math.round(Math.random() * (round - 1));
   }
   
   changeQuestion = () => {
-    this.answer = this.getRandomNumber(6);
-    // this.setState({selectedBird: null});
-    this.props.changeLevel(birdData);
+    if (!this.state.isAnsweredCorrectly) {
+      return;
+    }
+
+    const { level, changeLevel } = this.props;
+    this.answer = this.getRandomAnswer(level);
+    changeLevel(birdData);
+    this.setState({ isAnsweredCorrectly: false, isRoundCompleted: true });
+  }
+
+  checkAnswer = (isCorrect) => {
+    console.log(isCorrect, 'isCor')
+    if (isCorrect) {
+      this.setState({ isAnsweredCorrectly: isCorrect });
+    }
+  }
+
+  resetRound = () => {
+    this.setState({ isRoundCompleted: false });
   }
 
   render() {
-    const { level, changeLevel,  } = this.props;
-    const { answer, changeQuestion, isAnsweredCorrectly, selectedBird } = this;
+    const { level, updateScore } = this.props;
+    const { answer, changeQuestion, checkAnswer, resetRound } = this;
+    const { isAnsweredCorrectly, isRoundCompleted } = this.state;
     const currentRoundData = birdData[level].data;
     
-    console.log(selectedBird, 'next')
+    console.log( isAnsweredCorrectly,'next', isRoundCompleted)
 
     return (
       <main>
         <QuestionBlock 
-          // level={level}
           data={currentRoundData[answer]}
           isAnsweredCorrectly={isAnsweredCorrectly}
         />
         <GameBlock 
-          // level={level} 
           answer={answer}       
           data={currentRoundData}
+          checkAnswer={checkAnswer}
+          updateScore={updateScore}
+          isAnsweredCorrectly={isAnsweredCorrectly}
+          isRoundCompleted={isRoundCompleted}
+          resetRound={resetRound}
         />
         <button 
-          className={s.nextBtn} 
+          className={isAnsweredCorrectly ? s.nextBtn_active : s.nextBtn} 
           onClick={changeQuestion} 
         >Next level</button>
       </main>

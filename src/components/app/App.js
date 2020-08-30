@@ -21,6 +21,11 @@ class App extends Component {
       this.setState({ level: level + 1 });
     }
   }
+
+  updateScore = (points) => {
+    const { score } = this.state;
+    this.setState({ score: score + points });
+  }
   
   render () { 
     const { score, level } = this.state;
@@ -34,6 +39,7 @@ class App extends Component {
         <Main 
           changeLevel={this.changeLevel} 
           level={level}
+          updateScore={this.updateScore}
         />
       </div>
     );

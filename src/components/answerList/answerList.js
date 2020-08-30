@@ -1,8 +1,22 @@
 import React from 'react';
 import s from './answerList.module.css';
 
-const AnswerList = ({ data, answer, chooseBird }) => {
+const AnswerList = ({ data, answer, chooseBird, chosenOptions }) => {
+
   const listItem = data.map(({id, name}) => {
+    const isChosen = chosenOptions.find((item) => item === id);
+    const isCorrect = id === answer + 1;
+
+    let markClassName = `${s.answerList__mark}`;
+
+    if (isChosen && isCorrect) {
+      markClassName += ` ${s.answerList__mark_correct}`
+    }
+    
+    if (isChosen && !isCorrect) {
+      markClassName += ` ${s.answerList__mark_incorrect}`
+    }
+
     return (
       <li 
         className={s.answerList__item} 
@@ -10,7 +24,7 @@ const AnswerList = ({ data, answer, chooseBird }) => {
         id={id}
         onClick={chooseBird}
       >
-        <div className={s.answerList__mark} />
+        <div className={markClassName} />
         {name}
       </li>
     )

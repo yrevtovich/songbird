@@ -4,7 +4,6 @@ import defaultBird from '../../assets/defaultBird.jpg';
 import Audioplayer from '../audioplayer/audioplayer';
 
 const QuestionBlock = ({ data: { name, image, audio }, isAnsweredCorrectly }) => {
-  // console.log(data, isAnsweredCorrectly)
   
   return (
     <div className={s.questionBlock}>
@@ -16,7 +15,11 @@ const QuestionBlock = ({ data: { name, image, audio }, isAnsweredCorrectly }) =>
         <p className={s.questionBlock__name}>
           {isAnsweredCorrectly ? name : '******'}
         </p>
-        <Audioplayer audio={audio} autoplay={true}/>
+        <Audioplayer 
+          audio={audio}
+          autoplay={true} 
+          isAnsweredCorrectly={isAnsweredCorrectly}
+        />
       </div>
     </div>
   )

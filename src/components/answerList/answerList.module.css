@@ -31,3 +31,11 @@
   background-color: #808080;
   border-radius: 50%;
 }
+
+.answerList__mark_correct {
+  background-color: #00bc8c;
+}
+
+.answerList__mark_incorrect {
+  background-color: #d42323;
+}

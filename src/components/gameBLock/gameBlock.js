@@ -8,6 +8,10 @@ import BirdInfo from '../birdInfo/birdInfo';
 class GameBlock extends Component {
   constructor(props) {
     super(props);
+    this.answer = this.props.answer;
+    this.data = this.props.data;
+    this.answerSounds = true;
+    this.chosenOptions = [];
     this.state = {
       selectedBird: null,
     }
@@ -15,25 +19,63 @@ class GameBlock extends Component {
   // state = {
   //   selectedBird: this.props.selectedBird ,
   // }
+  // component
 
-  componentWillReceiveProps() {
-    console.log('props')
-    this.setState({ selectedBird: null })
+  componentDidUpdate() {
+    const { isRoundCompleted, resetRound } = this.props;
+    console.log(isRoundCompleted, 'is')
+    if (isRoundCompleted) {      
+      this.chosenOptions = [];
+      resetRound();
+      this.setState({ selectedBird: null, });
+    }
   }
+
+  // componentWillReceiveProps() {
+  //   console.log('props')
+  //   const { isAnsweredCorrectly } = this.props;
+  //   console.log(isAnsweredCorrectly, 'is')
+  //   if (isAnsweredCorrectly) {      
+  //     this.chosenOptions = [];
+  //     this.setState({ selectedBird: null, })
+  //   }
+  // }
 
   chooseBird = (event) => {
     const { target, target: { id } } = event;
+    const { checkAnswer, updateScore, isAnsweredCorrectly, answer } = this.props;
+    console.log(this.chosenOptions, 'this.chosenOptions', this.answer, answer, 'answ')
 
-    if (target.tagName === 'LI') {      
-      console.log(id)
-      this.setState({ selectedBird: id - 1 })
+    if (target.tagName !== 'LI' ) {      
+     return;
     }
+    this.setState({ selectedBird: id - 1 });
+
+    const isCorrect = +id === answer + 1 ? true : false;
+    const isSelected = this.chosenOptions.find((item) => item === +id);
+    // (isSelected, this.chosenOptions)
+    
+    if (isSelected || isAnsweredCorrectly) {
+      return;
+    }
+
+    console.log(isSelected, isAnsweredCorrectly, '11')
+
+    this.chosenOptions.push(+id);
+
+    if (isCorrect && !isSelected) {      
+      console.log('here')
+      updateScore(this.data.length - this.chosenOptions.length);
+      checkAnswer(isCorrect);
+      // this.answerSounds = false;
+    } 
+   
   }
 
   render() {
     const { data, answer } = this.props;
     const { selectedBird } = this.state;
-    console.log(selectedBird, 'selectedBird', this.props.selectedBird)
+    // (selectedBird, 'selectedBird', this.props.selectedBird)
 
     return (
       <div className={s.gameBlock} >
@@ -41,6 +83,7 @@ class GameBlock extends Component {
           data={data} 
           answer={answer} 
           chooseBird={this.chooseBird}
+          chosenOptions={this.chosenOptions}
         />
         <BirdInfo data={data[selectedBird]}/>  
       </div>
