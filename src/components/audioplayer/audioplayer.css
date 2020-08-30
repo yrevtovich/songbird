@@ -1,0 +1,121 @@
+.rhap_container {
+  min-width: auto;
+  background-color: #303030;
+  box-shadow: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.rhap_main {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rhap_container svg {
+  overflow: inherit;
+  vertical-align: inherit;
+}
+
+.rhap_container .rhap_volume-container svg path {
+  fill: #00bc8c;
+}
+
+.rhap_container svg path:hover path {
+  fill: #008966;
+}
+
+.rhap_progress-section {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.rhap_progress-container {
+  margin: 0;
+  padding: 0 5px;
+}
+
+.rhap_progress-bar {
+  background-color: #aeaeae;
+}
+
+.rhap_progress-filled {
+  background: linear-gradient(45deg, #00bc8c,50%, #00bcbc);
+}
+
+.rhap_progress-indicator {  
+  margin-left: -6px;
+  width: 15px;
+  height: 15px;
+  top: -5px;
+}
+
+.rhap_controls-section {
+  padding-right: 6px;
+  flex: none;
+}
+
+.rhap_main-controls {
+  margin-right: 5px;
+}
+
+.rhap_main-controls svg{
+  background-color: #00bc8c;
+  border-radius: 50%;
+}
+
+.rhap_container  .rhap_main-controls svg path {
+  fill: #303030;
+}
+
+.rhap_volume-container {
+  width: 100px;
+  flex: none;
+}
+
+.rhap_volume-bar {
+  background: #aeaeae;
+}
+
+.rhap_time {
+  color: #fff;
+  position: absolute;
+  top: 15px;
+}
+
+.rhap_current-time {
+  padding-top: 5px;  
+  font-size: 12px;
+  left: 0;
+}
+
+.rhap_total-time {
+  padding-top: 5px;  
+  font-size: 12px;
+  right: 0;
+}
+
+.rhap_stacked-reverse .rhap_controls-section {
+  width: 100%;
+}
+
+@media (max-width: 375px) {
+  .rhap_horizontal-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .rhap_controls-section {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .rhap_progress-section {
+    width: 100%;
+    max-width: none;
+    position: relative;
+  }
+
+  .rhap_progress-container {
+    width: 100%;
+  }
+}
